@@ -108,9 +108,29 @@ void Queue<T>::push(T value) {
 
 template <typename T>
 void Queue<T>::remove(T value) {
-	
-	// PROGRAM THIS METHOD
-
+	Item *pitem = this->first;
+	Item *ans = 0;
+	bool found = false;
+	while(pitem != 0){
+		if(pitem->value == value){
+			found = true;
+		}
+		else{
+			ans = pitem;
+			pitem = pitem->next;
+		}
+	}
+	if(found){
+		if(this->value == first){
+			first = pitem->next;
+		}
+		else if(this->value == last){
+			last = ans;
+		}
+		else{
+			ans->next = pitem->next;
+		}
+	}
 }
 
 
