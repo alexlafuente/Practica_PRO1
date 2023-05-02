@@ -60,7 +60,7 @@ class Data {
 		bool operator<(const Data &d);
 		
 		/* Pre: cert */
-		/* Post: retorna true si la data explícita és prèvia a la data implícita*/
+		/* Post: retorna true si la data implícita és prèvia a la data explícita*/
 		bool esPrevia(Data &data);
 		
 				
