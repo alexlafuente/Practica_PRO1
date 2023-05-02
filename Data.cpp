@@ -43,13 +43,13 @@ bool Data::operator<(const Data &data) {
 
 bool Data::esPrevia(Data &data){
     bool esPrevi = false;
-    if(this->any > data.any){
+    if(this->any < data.any){
         esPrevi = true;
     }
-    else if(this->any == data.any and this->mes > data.mes){
+    else if(this->any == data.any and this->mes < data.mes){
         esPrevi = true;
     }
-    else if(this->any == data.any and this->mes == data.mes and this->dia > data.dia){
+    else if(this->any == data.any and this->mes == data.mes and this->dia < data.dia){
         esPrevi = true;
     }
     return esPrevi;
