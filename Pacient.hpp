@@ -74,6 +74,10 @@ class Pacient {
 		   del pacient paràmetre implícit i el del pacient 'p' són
 		   identics (true) o no ho són (false) */
 		bool compare(const Pacient &p) const;
+		
+		// Destructor
+		// Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
+		~Pacient();
 
 
 		// PODEU AFEGIR ELS MÈTODES QUE NECESSITEU

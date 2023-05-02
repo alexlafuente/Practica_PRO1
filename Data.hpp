@@ -27,6 +27,10 @@ class Data {
 		/* Post: crea una data amb el dia, mes i any rebuts per paràmetre */	
 		Data(int dia, int mes, int any);
 		
+		// Destructor
+		// Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
+		~Data();
+		
 		//-----------
 		// Consultors
 		//-----------
@@ -54,6 +58,10 @@ class Data {
 		   implícit és anterior a la data 'd' rebuda (true) o
 		   no ho és (false) */
 		bool operator<(const Data &d);
+		
+		/* Pre: cert */
+		/* Post: retorna true si la data explícita és prèvia a la data implícita*/
+		bool esPrevia(Data &data);
 		
 				
 		//-----------

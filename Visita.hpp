@@ -25,6 +25,10 @@ class Visita {
 		/* Post: crea una visita de data 'd' i pacient 'p' */
 		Visita(const Data &d, const Pacient &p);
 		
+		// Destructor
+		// Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
+		~Visita();
+		
 		//-----------
 		// Consultors
 		//-----------
@@ -36,6 +40,5 @@ class Visita {
 		/* Pre: cert */
 		/* Post: retorna el pacient de la visita paràmetre implícit */
 		Pacient getPacient() const;
-		
 };
 #endif

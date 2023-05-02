@@ -13,6 +13,10 @@ Data::Data(int dia, int mes, int any) {
     this->any = any;
 }
 
+Data::~Data(){
+    
+}
+
 //-----------
 // Consultors
 //-----------
@@ -35,6 +39,20 @@ bool Data::operator==(const Data &data) {
 
 bool Data::operator<(const Data &data) {
 	return dia < data.dia  or (dia == data.dia and mes < data.mes) or (dia == data.dia and mes == data.mes and any < data.any);
+}
+
+bool Data::esPrevia(Data &data){
+    bool esPrevi = false;
+    if(this->any > data.any){
+        esPrevi = true;
+    }
+    else if(this->any == data.any and this->mes > data.mes){
+        esPrevi = true;
+    }
+    else if(this->any == data.any and this->mes == data.mes and this->dia > data.dia){
+        esPrevi = true;
+    }
+    return esPrevi;
 }
 
 //-----------

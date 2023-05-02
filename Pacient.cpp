@@ -84,6 +84,12 @@ bool Pacient::compare(const Pacient &p) const{
     return igual;
 }
 
+// Destructor
+// Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
+Pacient::~Pacient(){
+    
+}
+
 
 // PODEU AFEGIR ELS MÈTODES QUE NECESSITEU
 
@@ -106,6 +112,6 @@ istream& operator>>(istream &is, Pacient &p){
 /* Post: s'han escrit els atributs nom, edat, motiu i gravetat del
     pacient 'p' al canal estàndard de sortida */
 ostream& operator<<(ostream &os, const Pacient &p){
-    os << p.nom << " | " << p.edat << " | " << p.motiu << " | " << p.gravetat << endl;
+    os << p.nom << "  " << p.edat << " " << p.motiu << " " << p.gravetat << endl;
     return os;
 }

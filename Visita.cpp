@@ -9,6 +9,10 @@ Visita::Visita(const Data &data, const Pacient &pacient) {
     this->pacient = pacient;
 }
 
+Visita::~Visita(){
+    
+}
+
 //-----------
 // Consultors
 //-----------
