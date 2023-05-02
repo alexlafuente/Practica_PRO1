@@ -130,6 +130,11 @@ void Queue<T>::remove(T value) {
 		else{
 			ans->next = pitem->next;
 		}
+		delete pitem;
+		_size--;
+	}
+	else{
+		cout << "  error" << endl;
 	}
 }
 
