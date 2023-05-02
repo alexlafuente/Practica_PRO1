@@ -25,7 +25,7 @@ Pacient Pacient::Pacient(string nom){
     'edat', 'motiu' i 'gravetat' rebuts per paràmetre */
 Pacient Pacient::Pacient(string nom, int edat, string motiu, int gravetat){
     this->nom = nom;
-    this->/edat = edat;
+    this->edat = edat;
     this->motiu = motiu;
     this->gravetat = gravetat;
     return *this;
