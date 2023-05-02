@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
-#include <queue>
+#include <list>
 #include "Visita.hpp"
 
 class Doctor{
     
 private:
     string nom;
-    vector<Visita> visites;
+    list<Visita> visites;
 
 Public:
     //-------------
@@ -24,7 +24,7 @@ Public:
     
     // Pre: cert
     // Post: crea un Doctor amb el valor "nom" i "visites" passats per referència
-    Doctor(const string &nom, queue<Visita> &visites);
+    Doctor(const string &nom, list<Visita> &visites);
     
     // Destructor
     // Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
