@@ -78,5 +78,5 @@ void Doctor::eliminarVisita(Visita &visita){
 
 istream& operator>>(istream &is, Doctor &d){
     is >> d.nom;
-    return os;
+    return is;
 }
