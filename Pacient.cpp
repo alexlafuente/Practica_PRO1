@@ -7,7 +7,6 @@ Pacient Pacient::Pacient(){
     edat = 0;
     motiu = "";
     gravetat = 0;
-    return *this;
 }
 
 /* Pre: cert */
@@ -17,7 +16,6 @@ Pacient Pacient::Pacient(string nom){
     edat = 0;
     motiu = "";
     gravetat = 0;
-    return *this;
 }
 
 /* Pre: cert */
@@ -28,7 +26,14 @@ Pacient Pacient::Pacient(string nom, int edat, string motiu, int gravetat){
     this->edat = edat;
     this->motiu = motiu;
     this->gravetat = gravetat;
-    return *this;
+}
+
+bool Pacient::operator==(const Pacient &p){
+    bool igual = false;
+    if(this->nom == p.getNom() and this->edat == p.getEdat() and this->motiu == p.getMotiu() and this->gravetat == p.gravetat){
+        igual = true;
+    }
+    return igual;
 }
 
 //-------------
