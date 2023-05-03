@@ -46,7 +46,8 @@ void Doctor::ordenadarVisites(){
     for(it; it != visites.end(); ++it){ // it = i
         Visita x = *it;
         list<Visita>::iterator it2 = it; // it2 = j
-        list<Visita>::iterator it3 = --it2; // it3 = j - 1
+        list<Visita>::iterator it3 = it2;
+        it3--; // it3 = j - 1
         while(it2 != visites.begin() and x.getData() < (*it3).data){
             if(x.getData() < (*it3).data){
                 *it2 = (*it3);
