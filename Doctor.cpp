@@ -63,7 +63,7 @@ void Doctor::afegirVisita(Visita &visita){
 }
 
 void Doctor::eliminarVisita(Visita &visita){
-    list<Visita> iterator it = visites.begin()
+    list<Visita> iterator it = visites.begin();
     bool found = false;
     while(not found and it != visites.end){
         if(it->data == visita.data and it->pacient == visita.pacient){
