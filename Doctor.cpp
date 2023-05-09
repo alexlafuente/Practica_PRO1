@@ -6,14 +6,14 @@
 
 Doctor::Doctor(){
     nom = "";
-    visites = list<Visita>(0);
+    visites = vector<Visita>(0);
 }
 
 Doctor::Doctor(const string &nom){
     this->nom = nom;
 }
 
-Doctor::Doctor(const string &nom, list<Visita> &visites){
+Doctor::Doctor(const string &nom, vector<Visita> &visites){
     this->nom = nom;
     this->visites = visites;
 }
@@ -30,7 +30,7 @@ string Doctor::getName() const{
     return nom;
 }
 
-list<Visita> Doctor::visitesOrdenades() const{
+vector<Visita> Doctor::visitesOrdenades() const{
     visites.ordenarVisites();
     return this->visites;
 }
@@ -40,21 +40,18 @@ list<Visita> Doctor::visitesOrdenades() const{
 //-------------
 
 void Doctor::ordenadarVisites(){
+    vector<Film> faux = visites;
     // Insertion sort
-    list<Visita>::iterator it = visites.begin();
-    ++it;
-    for(it; it != visites.end(); ++it){ // it = i
-        Visita x = *it;
-        list<Visita>::iterator it2 = it; // it2 = j
-        list<Visita>::iterator it3 = it2;
-        it3--; // it3 = j - 1
-        while(it2 != visites.begin() and x.getData() < (*it3).data){
-            if(x.getData() < (*it3).data){
-                *it2 = (*it3);
+    for(int i = 1; i < int(faux.size()); ++i){
+        Film x = faux[i];
+        int j = i;
+        while(j > 0 and x.getData() < faux[j - 1].data()){
+            if(x.getData() < faux[j - 1].data()){
+                faux[j] = faux[j - 1];
             }
-            it2--;
+            --j;
         }
-        *it2 = x;
+        faux[j] = x;
     }
 }
 
@@ -63,17 +60,14 @@ void Doctor::afegirVisita(Visita &visita){
 }
 
 void Doctor::eliminarVisita(Visita &visita){
-    list<Visita> iterator it = visites.begin();
-    bool found = false;
-    while(not found and it != visites.end){
-        if(it->data == visita.data and it->pacient == visita.pacient){
-            found = true;
-            it = it.erase(it);
-        }
-        else{
-            ++it;
+    vector<Visita> aux(0);
+    for(int i = 0; i < int(visites.size()); ++i){
+        // Es copien tots els elements, menys el que es vol eliminar
+        if(visites[i].data != visita.data and visites[i].pacient != visita.pacient){
+            aux.push_back(visites[i]);
         }
     }
+    visites = aux;
 }
 
 istream& operator>>(istream &is, Doctor &d){
