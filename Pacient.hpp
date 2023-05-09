@@ -38,6 +38,10 @@ class Pacient {
            'edat', 'motiu' i 'gravetat' rebuts per paràmetre */
 		Pacient(string nom, int edat, string motiu, int gravetat);
 		
+		// Destructor
+		// Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
+		~Pacient();
+		
 		//-------------
 		// Modificadors
 		//-------------
@@ -74,10 +78,6 @@ class Pacient {
 		   del pacient paràmetre implícit i el del pacient 'p' són
 		   identics (true) o no ho són (false) */
 		bool compare(const Pacient &p) const;
-		
-		// Destructor
-		// Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
-		~Pacient();
 
 
 		// PODEU AFEGIR ELS MÈTODES QUE NECESSITEU
@@ -87,6 +87,12 @@ class Pacient {
 		   implícit i el pacient 'p' rebut són idèntics (true)
 		   o no ho són (false) */
 		bool operator==(const Pacient &p);
+		
+		/* Pre: cert */
+		/* Post: retorna un booleà que indica si el pacient paràmetre
+		   implícit és anterior al pacient 'p' rebut (true) o
+		   no ho és (false), en base a l'ordenació alfabètica dels noms d'aquests */
+		bool operator<(const Pacient &p);
 		
 		
 		//-----------

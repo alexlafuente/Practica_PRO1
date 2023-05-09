@@ -1,5 +1,9 @@
 #include "Pacient.hpp"
 
+//-------------
+// Constructors
+//-------------
+
 /* Pre: cert */
 /* Post: crea un pacient buit */		
 Pacient Pacient::Pacient(){
@@ -34,6 +38,12 @@ bool Pacient::operator==(const Pacient &p){
         igual = true;
     }
     return igual;
+}
+
+// Destructor
+// Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
+Pacient::~Pacient(){
+    
 }
 
 //-------------
@@ -85,10 +95,12 @@ bool Pacient::compare(const Pacient &p) const{
     return this->gravetat < p.getGravetat();
 }
 
-// Destructor
-// Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
-Pacient::~Pacient(){
-    
+/* Pre: cert */
+/* Post: retorna un booleà que indica si el pacient paràmetre
+    implícit és anterior al pacient 'p' rebut (true) o
+    no ho és (false), en base a l'ordenació alfabètica dels noms d'aquests */
+bool Pacient::operator<(const Pacient &p){
+    return this->nom < p.getNom();
 }
 
 
