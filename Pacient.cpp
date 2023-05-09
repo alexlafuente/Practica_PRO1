@@ -82,11 +82,7 @@ int Pacient::getGravetat() const{
     del pacient paràmetre implícit i el del pacient 'p' són
     identics (true) o no ho són (false) */
 bool Pacient::compare(const Pacient &p) const{
-    bool igual = false;
-    if(this->gravetat == p.getGravetat()){
-        igual = true;
-    }
-    return igual;
+    return this->gravetat < p.getGravetat();
 }
 
 // Destructor
