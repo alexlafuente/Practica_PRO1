@@ -75,8 +75,8 @@ class Pacient {
 		
 		/* Pre: cert */
 		/* Post: retorna un booleà que indica si l'estat de gravetat
-		   del pacient paràmetre implícit i el del pacient 'p' són
-		   identics (true) o no ho són (false) */
+		   del pacient paràmetre implícit i el del pacient 'p' és
+		   inferior (true) o no ho és (false) */
 		bool compare(const Pacient &p) const;
 
 
@@ -90,7 +90,7 @@ class Pacient {
 		
 		/* Pre: cert */
 		/* Post: retorna un booleà que indica si el pacient paràmetre
-		   implícit és anterior al pacient 'p' rebut (true) o
+		   implícit és inferior al pacient 'p' rebut (true) o
 		   no ho és (false), en base a l'ordenació alfabètica dels noms d'aquests */
 		bool operator<(const Pacient &p);
 		
