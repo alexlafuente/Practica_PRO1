@@ -46,9 +46,7 @@ void Doctor::ordenadarVisites(){
         Film x = faux[i];
         int j = i;
         while(j > 0 and x.getData() < faux[j - 1].data()){
-            if(x.getData() < faux[j - 1].data()){
-                faux[j] = faux[j - 1];
-            }
+            faux[j] = faux[j - 1];
             --j;
         }
         faux[j] = x;
@@ -56,16 +54,25 @@ void Doctor::ordenadarVisites(){
 }
 
 void Doctor::afegirVisita(Visita &visita){
-    visites.insert(l.begin(), visita);
+    visites.push_back(visita);
 }
 
 void Doctor::eliminarVisita(Visita &visita){
     vector<Visita> aux(0);
-    for(int i = 0; i < int(visites.size()); ++i){
-        // Es copien tots els elements, menys el que es vol eliminar
+    bool found = false;
+    int i = 0;
+    for(i; not found and i < int(visites.size()); ++i){
+        // Es copien tots els elements, fins el que es vol eliminar (aquest no el copiem)
         if(visites[i].data != visita.data and visites[i].pacient != visita.pacient){
             aux.push_back(visites[i]);
         }
+        else{
+            found = true;
+        }
+    }
+    for(i; i < int(visites.size()); ++i){
+        // Copia els elements restants
+        aux.push_back(visites[i]);
     }
     visites = aux;
 }
