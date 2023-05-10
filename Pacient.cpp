@@ -32,14 +32,6 @@ Pacient Pacient::Pacient(string nom, int edat, string motiu, int gravetat){
     this->gravetat = gravetat;
 }
 
-bool Pacient::operator==(const Pacient &p){
-    bool igual = false;
-    if(this->nom == p.getNom() and this->edat == p.getEdat() and this->motiu == p.getMotiu() and this->gravetat == p.gravetat){
-        igual = true;
-    }
-    return igual;
-}
-
 // Destructor
 // Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
 Pacient::~Pacient(){
@@ -93,6 +85,14 @@ int Pacient::getGravetat() const{
     identics (true) o no ho són (false) */
 bool Pacient::compare(const Pacient &p) const{
     return this->gravetat < p.getGravetat();
+}
+
+bool Pacient::operator==(const Pacient &p){
+    bool igual = false;
+    if(this->nom == p.getNom() and this->edat == p.getEdat() and this->motiu == p.getMotiu() and this->gravetat == p.gravetat){
+        igual = true;
+    }
+    return igual;
 }
 
 /* Pre: cert */
