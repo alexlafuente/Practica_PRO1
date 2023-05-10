@@ -107,9 +107,26 @@ void BST<T>::setValue(const T& d, const T& value) {
 // Consultors
 //-----------
 
+void ef_find(Item *pitem, pair<bool, T> &aux, const T &element){
+	if(not pair.first and pitem != 0){
+		if(element == pitem->data){
+			aux.first = true;
+			aux.second = pitem->data;
+		}
+		else if(element < pitem->data){
+			ef_find(pitem->left, aux, element);
+		}
+		else if(element > pitem->data){
+			ef_find(pitem->right, aux, element);
+		}
+	}
+}
+
 template <typename T>
-pair<bool, T> BST<T>::find(const T& d) const { 
-	
-	// PROGRAM THIS METHOD
-	
+pair<bool, T> BST<T>::find(const T& d) const {
+	pair<bool, T> aux;
+	pair.first = false; // Per si de cas, instanciem el booleà com a fals
+	Item *pitem = root; // Punter auxiliar, que apunta a l'arrel de l'arbre de cerca
+	ef_find(pitem, aux, d);
+	return aux;
 }
