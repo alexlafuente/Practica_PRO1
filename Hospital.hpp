@@ -74,7 +74,7 @@ Public:
     // Pre: p, doc i data no estan buits
     // Post: si no existeix un pacient amb nom p al registre, o un doctor amb nom doc a la llista, o la visita no existeix a la llista, dona error. En cas 
     // contrari, s’elimina la visita al doctor amb el pacient de nom p la data de nom data.
-    void eliminarVisita(const &string &p, const string &doc, const Data &data) // Apunt: comparar visites del vector de visites amb == getData() i 
+    void eliminarVisita(const &string &p, const string &doc, const Data &data); // Apunt: comparar visites del vector de visites amb == getData() i 
                                                                                //        == getPacient();
     // Pre: cert
     // Post: Per cada doctor que hi hagi en la llista, s’escriu el seu nom i la llista de visites (ordenada per data)
