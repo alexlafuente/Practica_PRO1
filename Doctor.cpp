@@ -45,7 +45,7 @@ void Doctor::ordenadarVisites(){
     for(int i = 1; i < int(faux.size()); ++i){
         Film x = faux[i];
         int j = i;
-        while(j > 0 and x.getData() <= faux[j - 1].data()){
+        while(j > 0 and x.getData() < faux[j - 1].data()){
             faux[j] = faux[j - 1];
             --j;
         }
