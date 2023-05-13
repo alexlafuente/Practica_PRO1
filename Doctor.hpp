@@ -41,13 +41,13 @@ Public:
     // Post: retorna el nom del doctor paràmetre implícit
     string getName() const;
     
-    // Pre: cert
-    // Post: retorna la llista de visites paràmetre implícit, ordenat
-    vector<Visita> visitesOrdenades() const;
-    
     //-------------
     // Modificadors
     //-------------
+    
+    // Pre: cert
+    // Post: retorna la llista de visites paràmetre implícit, ordenat
+    vector<Visita> visitesOrdenades();
     
     // Pre: cert
     // Post: afegeix visita paràmetre explícit, al final del vector de visites paràmetre implícit

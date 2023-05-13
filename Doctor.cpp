@@ -30,14 +30,14 @@ string Doctor::getName() const{
     return nom;
 }
 
+//-------------
+// Modificadors
+//-------------
+
 vector<Visita> Doctor::visitesOrdenades() const{
     visites.ordenarVisites();
     return this->visites;
 }
-
-//-------------
-// Modificadors
-//-------------
 
 void Doctor::ordenarVisites(){
     vector<Film> faux = visites;
