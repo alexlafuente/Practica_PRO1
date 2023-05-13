@@ -39,7 +39,7 @@ vector<Visita> Doctor::visitesOrdenades() const{
 // Modificadors
 //-------------
 
-void Doctor::ordenadarVisites(){
+void Doctor::ordenarVisites(){
     vector<Film> faux = visites;
     // Insertion sort
     for(int i = 1; i < int(faux.size()); ++i){

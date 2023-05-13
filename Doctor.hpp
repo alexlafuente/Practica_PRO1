@@ -8,6 +8,9 @@ class Doctor{
 private:
     string nom;
     vector<Visita> visites;
+    // Pre: cert
+    // Post: ordena el vector de visites paràmetre implícit
+    void ordenarVisites();
 
 Public:
     //-------------
@@ -45,10 +48,6 @@ Public:
     //-------------
     // Modificadors
     //-------------
-    
-    // Pre: cert
-    // Post: ordena el vector de visites paràmetre implícit
-    void ordenadarVisites();
     
     // Pre: cert
     // Post: afegeix visita paràmetre explícit, al final del vector de visites paràmetre implícit
