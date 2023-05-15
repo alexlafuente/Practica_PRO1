@@ -66,10 +66,10 @@ Public:
     // sistema, i es ressitua el pacient en la llista d’espera en funció del nou nivell de gravetat
     void modificarPacient(const string &s, int &g); // Apunt: en PriorityQueue, eliminar element i afegir el nou element (modificat) i modificar en BST
     
-    // Pre: p, doc i data no estan buits
-    // Post: si no existeix un pacient amb nom p al registre, o un doctor amb nom doc a la llista, dona error i no fa res. En cas contrari, s’afegeix una nova 
+    // Pre: s, doc i data no estan buits
+    // Post: si no existeix un pacient amb nom s al registre, o un doctor amb nom doc a la llista, dona error i no fa res. En cas contrari, s’afegeix una nova 
     // visita al doctor amb el pacient i data indicat
-    void afegirVisita(const &string &p, const string &doc, const Data &data); // Apunt: Agafar el Pacient a afegir al vector de visites, del BST
+    void afegirVisita(const &string &s, const string &doc, const Data &data); // Apunt: Agafar el Pacient a afegir al vector de visites, del BST
     
     // Pre: p, doc i data no estan buits
     // Post: si no existeix un pacient amb nom p al registre, o un doctor amb nom doc a la llista, o la visita no existeix a la llista, dona error. En cas 
