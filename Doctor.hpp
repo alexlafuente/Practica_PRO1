@@ -57,6 +57,10 @@ Public:
     // Post: elimina visita paràmetre explícit, al final del vector de visites paràmetre implícit (copiar tots elements en vector auxiliar, excepte el que coincideix, i this->visites = vector auxiliar<Visita>)
     void eliminarVisita(Visita &visita);
     
+    // Pre: n no està buida
+    // Post: s'eliminen totes les visites d'un pacient p
+    void eliminarVisites(Pacient &p);
+    
     /* Pre: està preparat al canal estàndard d'entrada un valor - string*/
     /* Post: el doctor 'd' passa a tenir el valor llegit del canal
         estàndard d'entrada com a nom */			

@@ -63,7 +63,7 @@ void Doctor::eliminarVisita(Visita &visita){
     int i = 0;
     for(i; not found and i < int(visites.size()); ++i){
         // Es copien tots els elements, fins el que es vol eliminar (aquest no el copiem)
-        if(visites[i].data != visita.data and visites[i].pacient != visita.pacient){
+        if(visites[i].getData() != visita.getData() and visites[i].getPacient() != visita.getPacient()){
             aux.push_back(visites[i]);
         }
         else{
@@ -73,6 +73,16 @@ void Doctor::eliminarVisita(Visita &visita){
     for(i; i < int(visites.size()); ++i){
         // Copia els elements restants
         aux.push_back(visites[i]);
+    }
+    visites = aux;
+}
+
+void Hospital::eliminarVisites(Pacient &p){
+    vector<Visita> aux(0);
+    for(int i = 0; i < int(visites.size()); ++i){
+        if(visites[i].getPacient() != p){
+            aux.push_back(visites[i]);
+        }
     }
     visites = aux;
 }
