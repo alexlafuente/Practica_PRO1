@@ -83,7 +83,7 @@ class Pacient {
 		/* Post: retorna un booleà que indica si el pacient paràmetre
 		   implícit i el pacient 'p' rebut són idèntics (true)
 		   o no ho són (false)*/
-		bool mateixesDades(Pacient &p) const;
+		bool mateixesDades(const Pacient &p) const;
 
 
 		// PODEU AFEGIR ELS MÈTODES QUE NECESSITEU
