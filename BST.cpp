@@ -108,7 +108,7 @@ void BST<T>::setValue(const T& d, const T& value) {
 //-----------
 
 void ef_find(Item *pitem, pair<bool, T> &aux, const T &element) const{
-	if(not pair.first and pitem != 0){
+	if(not aux.first and pitem != 0){
 		if(element == pitem->data){
 			aux.first = true;
 			aux.second = pitem->data;
@@ -125,7 +125,7 @@ void ef_find(Item *pitem, pair<bool, T> &aux, const T &element) const{
 template <typename T>
 pair<bool, T> BST<T>::find(const T& d) const {
 	pair<bool, T> aux;
-	pair.first = false; // Per si de cas, instanciem el booleà com a fals
+	aux.first = false; // Per si de cas, instanciem el booleà com a fals
 	Item *pitem = root; // Punter auxiliar, que apunta a l'arrel de l'arbre de cerca
 	ef_find(pitem, aux, d);
 	return aux;
