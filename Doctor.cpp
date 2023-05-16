@@ -63,7 +63,7 @@ void Doctor::eliminarVisita(Visita &visita){
     int i = 0;
     for(i; not found and i < int(visites.size()); ++i){
         // Es copien tots els elements, fins el que es vol eliminar (aquest no el copiem)
-        if(visites[i].getData() != visita.getData() and visites[i].getPacient() != visita.getPacient()){
+        if(not (visites[i].getData() == visita.getData()) and not (visites[i].getPacient().mateixesDades(visita.getPacient()))){
             aux.push_back(visites[i]);
         }
         else{
