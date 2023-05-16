@@ -97,6 +97,9 @@ void Hospital::modificarPacient(const string &s, int &g){
             llistaEspera.remove(aux.second);
             llistaEspera.push(aux.second.actualitzaEstat(g)); // Actualitzem pacient amb la nova gravetat, i l'afegim de manera que s'ordeni automàticament
         }
+        else{
+            cout << "  error" << endl;
+        }
     }
     else{
         cout << "  error" << endl;
