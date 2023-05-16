@@ -78,6 +78,12 @@ class Pacient {
 		   del pacient paràmetre implícit i el del pacient 'p' és
 		   inferior (true) o no ho és (false) */
 		bool compare(const Pacient &p) const;
+		
+		/* Pre: cert */
+		/* Post: retorna un booleà que indica si el pacient paràmetre
+		   implícit i el pacient 'p' rebut són idèntics (true)
+		   o no ho són (false)*/
+		bool mateixesDades(Pacient &p) const;
 
 
 		// PODEU AFEGIR ELS MÈTODES QUE NECESSITEU
@@ -85,7 +91,7 @@ class Pacient {
 		/* Pre: cert */
 		/* Post: retorna un booleà que indica si el pacient paràmetre
 		   implícit i el pacient 'p' rebut són idèntics (true)
-		   o no ho són (false) */
+		   o no ho són (false), només tenint en compte els noms */
 		bool operator==(const Pacient &p);
 		
 		/* Pre: cert */
