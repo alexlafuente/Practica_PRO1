@@ -37,8 +37,8 @@ PriorityQueue<Pacient> Hospital::getLlistaEspera() const{
 void Hospital::afegirPacient(const Pacient &p){
     pair<bool, Pacient> aux = pacients.find(p);
     if(aux.first){
-        pacients.insert(p);
         llistaEspera.push(p);
+        pacients.insert(p);
     }
     else{
         cout << "  error" << endl;
@@ -49,9 +49,11 @@ void Hospital::eliminarPacient(const string &s){
     Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
     pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
     if(aux.first){
-        pacients.remove(pair.second);
-        llistaEspera.remove(pair.second);
-        doctors.eliminarVisites(s);
+        llistaEspera.remove(aux.second); // Eliminem el pacient de la llista d'espera
+        pacients.remove(aux.second); // Eliminem el pacient del sistema
+        for(int i = 0; i < int(doctors.size()); ++i){ // Eliminem de les agendes dels doctors, totes les visites programades aquest per pacient
+            doctors[i].eliminarVisites(aux.second);
+        }
     }
     else{
         cout << "  error" << endl;
@@ -62,7 +64,7 @@ void Hospital::afegirDoctor(const string &s){
     bool found = false;
     int i = 0;
     while(not found and i < int(doctors.size())){
-        if(doctors.getName() == s){
+        if(doctors[i].getName() == s){
             found = true;
         }
         else{
