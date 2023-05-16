@@ -87,7 +87,7 @@ bool Pacient::compare(const Pacient &p) const{
     return this->gravetat < p.getGravetat();
 }
 
-bool mateixesDades(const Pacient &p) const{
+bool Pacient::mateixesDades(const Pacient &p) const{
     return this->nom == p.getNom() and this->edat == p.getEdat() and this->motiu == p.getMotiu() and this->gravetat == p.getGravetat();
 }
 
