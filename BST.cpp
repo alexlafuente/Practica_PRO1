@@ -107,7 +107,7 @@ void BST<T>::setValue(const T& d, const T& value) {
 // Consultors
 //-----------
 
-void ef_find(Item *pitem, pair<bool, T> &aux, const T &element){
+void ef_find(Item *pitem, pair<bool, T> &aux, const T &element) const{
 	if(not pair.first and pitem != 0){
 		if(element == pitem->data){
 			aux.first = true;
