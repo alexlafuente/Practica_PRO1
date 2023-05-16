@@ -72,7 +72,7 @@ void Hospital::afegirDoctor(const string &s){
         }
     }
     if(not found){
-        doctors.push_back(Doctor(s));
+        doctors.push_back(Doctor(s)); // Afegim un nou element al vector de doctors, utilitzant la constructora de la classe 'Doctor' que rep una string
     }
     else{
         cout << "  error" << endl;
