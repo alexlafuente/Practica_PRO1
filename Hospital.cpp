@@ -93,8 +93,8 @@ void Hospital::modificarPacient(const string &s, int &g){
         Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
         pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
         if(aux.first){
-            pacients.setValue(aux.second(), g);
-            llistaEspera.remove(aux.second());
+            pacients.setValue(aux.second, g);
+            llistaEspera.remove(aux.second);
             llistaEspera.push(aux.second.actualitzaEstat(g)); // Actualitzem pacient amb la nova gravetat, i l'afegim de manera que s'ordeni automàticament
         }
     }
@@ -120,6 +120,9 @@ void Hospital::afegirVisita(const &string &s, const string &doc, const Data &dat
         }
         if(found){
             doctors[i].afegirVisita(Visita(data, aux.second)) // creem una visita amb la constructora que rep per paràmetre una data i un pacient
+        }
+        else{
+            cout << "  error" << endl;
         }
     }
     else{
