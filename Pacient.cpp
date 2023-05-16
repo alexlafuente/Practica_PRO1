@@ -88,11 +88,7 @@ bool Pacient::compare(const Pacient &p) const{
 }
 
 bool Pacient::operator==(const Pacient &p){
-    bool igual = false;
-    if(this->nom == p.getNom() and this->edat == p.getEdat() and this->motiu == p.getMotiu() and this->gravetat == p.gravetat){
-        igual = true;
-    }
-    return igual;
+    return this->nom == p.getNom();
 }
 
 /* Pre: cert */
