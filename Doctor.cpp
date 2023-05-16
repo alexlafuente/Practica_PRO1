@@ -80,7 +80,7 @@ void Doctor::eliminarVisita(Visita &visita){
 void Hospital::eliminarVisites(Pacient &p){
     vector<Visita> aux(0);
     for(int i = 0; i < int(visites.size()); ++i){
-        if(not visites[i].getPacient() == p){
+        if(not visites[i].getPacient().mateixesDades(p)){
             aux.push_back(visites[i]);
         }
     }
