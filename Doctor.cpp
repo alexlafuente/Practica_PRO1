@@ -6,12 +6,12 @@
 
 Doctor::Doctor(){
     nom = "";
-    visites = vector<Visita>(0, Visita(Data(), Pacient())); // L'inicialitzem sense elements instanciats a visites buides
+    visites = vector<Visita>(0, Visita(Data(), Pacient())); // L'inicialitzem sense elements, instanciats a visites buides
 }
 
 Doctor::Doctor(const string &nom){
     this->nom = nom;
-    visites = vector<Visita>(0, Visita(Data(), Pacient())); // L'inicialitzem sense elements instanciats a visites buides
+    visites = vector<Visita>(0, Visita(Data(), Pacient())); // L'inicialitzem sense elements, instanciats a visites buides
 }
 
 Doctor::Doctor(const string &nom, vector<Visita> &visites){
@@ -58,7 +58,7 @@ void Doctor::afegirVisita(Visita &visita){
 }
 
 void Doctor::eliminarVisita(Visita &visita){
-    vector<Visita> aux(0, Visita(Data(), Pacient())); // L'inicialitzem sense elements instanciats a visites buides
+    vector<Visita> aux(0, Visita(Data(), Pacient())); // L'inicialitzem sense elements, instanciats a visites buides
     bool found = false;
     int i = 0;
     while(not found and i < int(visites.size())){
@@ -80,7 +80,7 @@ void Doctor::eliminarVisita(Visita &visita){
 }
 
 void Doctor::eliminarVisites(Pacient &p){
-    vector<Visita> aux(0, Visita(Data(), Pacient())); // L'inicialitzem sense elements instanciats a visites buides
+    vector<Visita> aux(0, Visita(Data(), Pacient())); // L'inicialitzem sense elements, instanciats a visites buides
     for(int i = 0; i < int(visites.size()); ++i){
         if(not visites[i].getPacient().mateixesDades(p)){
             aux.push_back(visites[i]);
