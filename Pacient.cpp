@@ -6,7 +6,7 @@
 
 /* Pre: cert */
 /* Post: crea un pacient buit */		
-Pacient Pacient::Pacient(){
+Pacient::Pacient(){
     nom = "";
     edat = 0;
     motiu = "";
@@ -15,7 +15,7 @@ Pacient Pacient::Pacient(){
 
 /* Pre: cert */
 /* Post: crea un pacient de nom 'nom' */	
-Pacient Pacient::Pacient(string nom){
+Pacient::Pacient(string nom){
     this->nom = nom;
     edat = 0;
     motiu = "";
@@ -25,7 +25,7 @@ Pacient Pacient::Pacient(string nom){
 /* Pre: cert */
 /* Post: crea un pacient amb els valors de 'nom',
     'edat', 'motiu' i 'gravetat' rebuts per paràmetre */
-Pacient Pacient::Pacient(string nom, int edat, string motiu, int gravetat){
+Pacient::Pacient(string nom, int edat, string motiu, int gravetat){
     this->nom = nom;
     this->edat = edat;
     this->motiu = motiu;
