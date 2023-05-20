@@ -6,11 +6,12 @@
 
 Doctor::Doctor(){
     nom = "";
-    visites = vector<Visita>(0);
+    visites = vector<Visita>(0, Visita(Data(), Pacient())); // L'inicialitzem sense elements instanciats a visites buides
 }
 
 Doctor::Doctor(const string &nom){
     this->nom = nom;
+    visites = vector<Visita>(0, Visita(Data(), Pacient())); // L'inicialitzem sense elements instanciats a visites buides
 }
 
 Doctor::Doctor(const string &nom, vector<Visita> &visites){
@@ -34,22 +35,21 @@ string Doctor::getName() const{
 // Modificadors
 //-------------
 
-vector<Visita> Doctor::visitesOrdenades() const{
-    visites.ordenarVisites();
+vector<Visita> Doctor::visitesOrdenades(){
+    ordenarVisites();
     return this->visites;
 }
 
 void Doctor::ordenarVisites(){
-    vector<Film> faux = visites;
     // Insertion sort
-    for(int i = 1; i < int(faux.size()); ++i){
-        Film x = faux[i];
+    for(int i = 1; i < int(visites.size()); ++i){
+        Visita x = visites[i];
         int j = i;
-        while(j > 0 and x.getData() < faux[j - 1].data()){
-            faux[j] = faux[j - 1];
+        while(j > 0 and x.getData() < visites[j - 1].getData()){
+            visites[j] = visites[j - 1];
             --j;
         }
-        faux[j] = x;
+        visites[j] = x;
     }
 }
 
@@ -61,7 +61,7 @@ void Doctor::eliminarVisita(Visita &visita){
     vector<Visita> aux(0);
     bool found = false;
     int i = 0;
-    for(i; not found and i < int(visites.size()); ++i){
+    while(not found and i < int(visites.size())){
         // Es copien tots els elements, fins el que es vol eliminar (aquest no el copiem)
         if(not (visites[i].getData() == visita.getData()) and not (visites[i].getPacient().mateixesDades(visita.getPacient()))){
             aux.push_back(visites[i]);
@@ -69,15 +69,17 @@ void Doctor::eliminarVisita(Visita &visita){
         else{
             found = true;
         }
+        ++i;
     }
-    for(i; i < int(visites.size()); ++i){
+    while(i < int(visites.size())){
         // Copia els elements restants
         aux.push_back(visites[i]);
+        ++i;
     }
     visites = aux;
 }
 
-void Hospital::eliminarVisites(Pacient &p){
+void Doctor::eliminarVisites(Pacient &p){
     vector<Visita> aux(0);
     for(int i = 0; i < int(visites.size()); ++i){
         if(not visites[i].getPacient().mateixesDades(p)){

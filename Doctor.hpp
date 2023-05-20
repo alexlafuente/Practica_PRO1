@@ -12,7 +12,7 @@ private:
     // Post: ordena el vector de visites paràmetre implícit
     void ordenarVisites();
 
-Public:
+public:
     //-------------
     // Constructors
     //-------------
@@ -66,12 +66,11 @@ Public:
         estàndard d'entrada com a nom */			
     friend istream& operator>>(istream &is, Doctor &d);
     
-<<<<<<< HEAD
+
     /* Pre: cert */
     /* Post: s'ha escrit l'atribut nom del
         doctor 'd' al canal estàndard de sortida */
     //friend ostream& operator<<(ostream &os, const Doctor &d);
     
-=======
->>>>>>> c4a6c6067eb0845587c74945a78998fc61993364
+
 };
