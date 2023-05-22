@@ -133,6 +133,37 @@ void Hospital::afegirVisita(const &string &s, const string &doc, const Data &dat
     }
 }
 
-void Hospital::eliminarVisita(const &string &p, const string &doc, const Data &data){
-    
+void Hospital::eliminarVisita(const &string &s, const string &doc, const Data &data){
+    Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
+    pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
+    if(aux.first){
+        // Trobem el doctor de nom doc
+        bool found = false;
+        int i = 0;
+        while(not found and i < int(doctors.size())){
+            if(doctors[i].getName() == doc){
+                found = true;
+            }
+            else{
+                ++i;
+            }
+        }
+        if(found){
+            doctors[i].eliminarVisita(Visita(data, aux.second)) // creem una visita amb la constructora que rep per paràmetre una data i un pacient
+        }
+        else{
+            cout << "  error" << endl;
+        }
+    }
+    else{
+        cout << "  error" << endl;
+    }
+}
+
+void Hospital::mostrarVisites(){
+    if(doctors.size() > 0){
+        for(int i = 0; i < int(doctors.size()); ++i){
+            cout << doctors[i];
+        }
+    }
 }
