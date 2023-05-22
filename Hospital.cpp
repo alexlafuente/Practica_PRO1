@@ -27,6 +27,7 @@ Hospital::~Hospital(){
 //-------------
 
 void Hospital::mostrarLlistaEspera(){
+    cout << "llista_espera" << endl;
     if(not this->llistaEspera.empty()){
         Queue<Pacient> quaux(this->llistaEspera); // Creem una llista de espera auxiliar
         while(not quaux.empty()){
@@ -42,6 +43,7 @@ void Hospital::mostrarLlistaEspera(){
 void Hospital::afegirPacient(const Pacient &p){
     pair<bool, Pacient> aux = pacients.find(p);
     if(not aux.first){
+        cout << "alta_pacient " << p.getNom() << "  " << p.getEdat() << " " << p.getMotiu() << " " << p.getGravetat() << endl;
         llistaEspera.push(p);
         pacients.insert(p);
     }
@@ -51,6 +53,7 @@ void Hospital::afegirPacient(const Pacient &p){
 }
 
 void Hospital::eliminarPacient(const string &s){
+    cout << "baixa_pacient " << nom << endl;
     Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
     pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
     if(aux.first){
@@ -66,6 +69,7 @@ void Hospital::eliminarPacient(const string &s){
 }
 
 void Hospital::afegirDoctor(const string &s){
+    cout << "alta_doctor " << s << endl;
     bool found = false;
     int i = 0;
     while(not found and i < int(doctors.size())){
@@ -85,6 +89,7 @@ void Hospital::afegirDoctor(const string &s){
 }
 
 void Hospital::tractarSeguent(){
+    cout << "tractar_seguent_pacient" << endl;
     if(int(llistaEspera.size()) != 0){
         llistaEspera.pop();
     }
@@ -94,6 +99,7 @@ void Hospital::tractarSeguent(){
 }
 
 void Hospital::modificarPacient(const string &s, int &g){
+    cout << "modificar_estat_pacient " << s << " "<< g << endl;
     if(g >= 1 and g <= 3){
         Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
         pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
@@ -113,6 +119,7 @@ void Hospital::modificarPacient(const string &s, int &g){
 }
 
 void Hospital::afegirVisita(const string &s, const string &doc, Data &data){
+    cout<< "programar_visita "<< s <<" "<< doc << " " << data << endl;
     Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
     pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
     if(aux.first){
@@ -140,6 +147,7 @@ void Hospital::afegirVisita(const string &s, const string &doc, Data &data){
 }
 
 void Hospital::eliminarVisita(const string &s, const string &doc, Data &data){
+    cout << "cancellar_visita " << s << " " << doc << " " << data << endl;
     Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
     pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
     if(aux.first){
@@ -167,6 +175,7 @@ void Hospital::eliminarVisita(const string &s, const string &doc, Data &data){
 }
 
 void Hospital::mostrarVisites(){
+    cout<< "mostrar_programacio_visites" << endl;
     if(doctors.size() > 0){
         for(int i = 0; i < int(doctors.size()); ++i){
             cout << doctors[i];

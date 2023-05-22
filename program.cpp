@@ -19,23 +19,47 @@ int main() {
     string inst;
     while ((cin >> inst) and (inst != "fi")) {
         if (inst == "alta_pacient") {
-            
-			// completar el codi
-
-        } else if (inst == "baixa_pacient") {
-            
-			// completar el codi
-
-        } else if (inst == "alta_doctor") {
-            
-			// completar el codi
-
+        	Pacient p;
+        	cin >> p;
+        	h.afegirPacient(p);
         } 
-		// ...
-		// completar el codi
-		// ...
+        else if (inst == "baixa_pacient") {
+            string nom;
+            cin >> nom;
+			h.eliminarPacient(nom);
+        } 
+        else if (inst == "alta_doctor") {
+            string doctor;
+            cin >> doctor;
+			h.afegirDoctor(doctor);
+        } 
+        else if (inst == "llista_espera") {
+           	h.mostrarLlistaEspera();
+        }
+        else if (inst == "tractar_seguent_pacient") {
+            h.tractarSeguent();
+        }
+        else if (inst == "modificar_estat_pacient") {
+            string nom;
+            int gravetat;
+            cin >> nom >> gravetat;
+			h.modificarPacient(nom, gravetat);
+        }
+        else if (inst == "programar_visita") {
+            string nom, doctor;
+            Pacient data;
+			afegirVisita(nom, doctor, data);
+        }
+        else if (inst == "cancellar_visita") {            
+			eliminarVisita()	
+        }
+        else if (inst == "mostrar_programacio_visites") { 
+			mostrarVisites();
+        }
+        else {
+            cout << "  error" << endl;
+        }
+		
     }
     cout << "fi" << endl;
 }
-
-	
