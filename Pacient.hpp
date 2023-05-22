@@ -100,6 +100,12 @@ class Pacient {
 		   no ho és (false), en base a l'ordenació alfabètica dels noms d'aquests */
 		bool operator<(Pacient p) const;
 		
+		/* Pre: cert */
+		/* Post: retorna un booleà que indica si el pacient paràmetre
+		   implícit és superior al pacient 'p' rebut (true) o
+		   no ho és (false), en base a l'ordenació alfabètica dels noms d'aquests */
+		bool operator>(Pacient p) const;
+		
 		
 		//-----------
 		// L/E

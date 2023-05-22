@@ -103,6 +103,10 @@ bool Pacient::operator<(Pacient p) const{
     return this->nom < p.getNom();
 }
 
+bool Pacient::operator>(Pacient p) const{
+    return this->nom > p.getNom();
+}
+
 
 // PODEU AFEGIR ELS MÈTODES QUE NECESSITEU
 
