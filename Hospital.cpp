@@ -53,7 +53,7 @@ void Hospital::afegirPacient(const Pacient &p){
 }
 
 void Hospital::eliminarPacient(const string &s){
-    cout << "baixa_pacient " << nom << endl;
+    cout << "baixa_pacient " << s << endl;
     Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
     pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
     if(aux.first){
