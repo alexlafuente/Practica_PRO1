@@ -36,7 +36,7 @@ PriorityQueue<Pacient> Hospital::getLlistaEspera() const{
 
 void Hospital::afegirPacient(const Pacient &p){
     pair<bool, Pacient> aux = pacients.find(p);
-    if(aux.first){
+    if(not aux.first){
         llistaEspera.push(p);
         pacients.insert(p);
     }
