@@ -47,14 +47,18 @@ int main() {
         }
         else if (inst == "programar_visita") {
             string nom, doctor;
-            Pacient data;
-			afegirVisita(nom, doctor, data);
+            Data data;
+            cin >> nom >> doctor >> data; 
+			h.afegirVisita(nom, doctor, data);
         }
-        else if (inst == "cancellar_visita") {            
-			eliminarVisita()	
+        else if (inst == "cancellar_visita") {
+            string nom, doctor;
+            Data data;
+            cin >> nom >> doctor >> data;
+			h.eliminarVisita(nom, doctor, data);	
         }
         else if (inst == "mostrar_programacio_visites") { 
-			mostrarVisites();
+			h.mostrarVisites();
         }
         else {
             cout << "  error" << endl;
