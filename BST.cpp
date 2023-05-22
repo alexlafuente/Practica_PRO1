@@ -1,3 +1,5 @@
+#include "BST.hpp"
+
 //--------------------------
 // Mètodes privats auxiliars
 //--------------------------
@@ -54,7 +56,7 @@ typename BST<T>::Item* BST<T>::remove(Item *node, const T& d) {
 
 template <typename T>
 void BST<T>::setValue(Item *node, const T& d, const T& value) {
-	Item *temp = find(node, d);
+	Item *temp = find(node, d); // ?? No existeix mètode find que rebi aquests tipus de paràmetre
 	if (temp != NULL) {
 		temp->data = value;
 	} else {
@@ -62,6 +64,21 @@ void BST<T>::setValue(Item *node, const T& d, const T& value) {
 	}
 }
 
+template <typename T>
+void BST<T>::ef_find(Item *pitem, pair<bool, T> &aux, const T &element) const{
+	if(not aux.first and pitem != 0){
+		if(element == pitem->data){
+			aux.first = true;
+			aux.second = pitem->data;
+		}
+		else if(element < pitem->data){
+			ef_find(pitem->left, aux, element);
+		}
+		else if(element > pitem->data){
+			ef_find(pitem->right, aux, element);
+		}
+	}
+}
 
 //-------------
 // Constructors
@@ -106,21 +123,6 @@ void BST<T>::setValue(const T& d, const T& value) {
 //-----------
 // Consultors
 //-----------
-
-void ef_find(Item *pitem, pair<bool, T> &aux, const T &element) const{
-	if(not aux.first and pitem != 0){
-		if(element == pitem->data){
-			aux.first = true;
-			aux.second = pitem->data;
-		}
-		else if(element < pitem->data){
-			ef_find(pitem->left, aux, element);
-		}
-		else if(element > pitem->data){
-			ef_find(pitem->right, aux, element);
-		}
-	}
-}
 
 template <typename T>
 pair<bool, T> BST<T>::find(const T& d) const {

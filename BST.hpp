@@ -105,6 +105,8 @@ public:
 	// Consultors
 	//-----------
 	
+	void ef_find(Item *pitem, pair<bool, T> &aux, const T &element) const;
+	
 	/* Pre: cert */
 	/* Post: el primer component del resultat indica
 	   si el paràmetre implícit conté un element amb
