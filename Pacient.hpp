@@ -92,13 +92,13 @@ class Pacient {
 		/* Post: retorna un booleà que indica si el pacient paràmetre
 		   implícit i el pacient 'p' rebut són idèntics (true)
 		   o no ho són (false), només tenint en compte els noms */
-		bool operator==(const Pacient &p);
+		bool operator==(Pacient p) const;
 		
 		/* Pre: cert */
 		/* Post: retorna un booleà que indica si el pacient paràmetre
 		   implícit és inferior al pacient 'p' rebut (true) o
 		   no ho és (false), en base a l'ordenació alfabètica dels noms d'aquests */
-		bool operator<(const Pacient &p);
+		bool operator<(Pacient p) const;
 		
 		
 		//-----------

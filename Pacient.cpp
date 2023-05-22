@@ -91,7 +91,7 @@ bool Pacient::mateixesDades(const Pacient &p) const{
     return this->nom == p.getNom() and this->edat == p.getEdat() and this->motiu == p.getMotiu() and this->gravetat == p.getGravetat();
 }
 
-bool Pacient::operator==(const Pacient &p){
+bool Pacient::operator==(Pacient p) const{
     return this->nom == p.getNom();
 }
 
@@ -99,7 +99,7 @@ bool Pacient::operator==(const Pacient &p){
 /* Post: retorna un booleà que indica si el pacient paràmetre
     implícit és anterior al pacient 'p' rebut (true) o
     no ho és (false), en base a l'ordenació alfabètica dels noms d'aquests */
-bool Pacient::operator<(const Pacient &p){
+bool Pacient::operator<(Pacient p) const{
     return this->nom < p.getNom();
 }
 
