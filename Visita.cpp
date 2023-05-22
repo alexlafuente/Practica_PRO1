@@ -4,7 +4,7 @@
 // Constructors
 //-------------
 
-Visita::Visita(const Data &d, const Pacient &p) {
+Visita::Visita(Data &d, Pacient &p) {
     this->data = d;
     this->pacient = p;
 }

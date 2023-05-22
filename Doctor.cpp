@@ -53,11 +53,11 @@ void Doctor::ordenarVisites(){
     }
 }
 
-void Doctor::afegirVisita(Visita &visita){
+void Doctor::afegirVisita(Visita visita){
     visites.push_back(visita);
 }
 
-void Doctor::eliminarVisita(Visita &visita){
+void Doctor::eliminarVisita(Visita visita){
     vector<Visita> aux(0, Visita(Data(), Pacient())); // L'inicialitzem sense elements, instanciats a visites buides
     bool found = false;
     int i = 0;
