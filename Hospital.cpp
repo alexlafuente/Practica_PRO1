@@ -7,18 +7,18 @@ using namespace std;
 //-------------
 
 Hospital::Hospital(){
-    llistaEspera = PriorityQueue<Pacient>();
+    llistaEspera = Queue<Pacient>();
     pacients = BST<Pacient>();
     doctors = vector<Doctor>(0);
 }
 
-Hospital::Hospital(const PriorityQueue<Pacient> &llistaEspera, const BST<Pacient> &pacients, const vector<Doctor> &doctors){
+Hospital::Hospital(const Queue<Pacient> &llistaEspera, const BST<Pacient> &pacients, const vector<Doctor> &doctors){
     this->llistaEspera = llistaEspera;
     this->pacients = pacients;
     this->doctors = doctors;
 }
 
-~Hospital(){
+Hospital::~Hospital(){
     
 }
 
@@ -26,8 +26,13 @@ Hospital::Hospital(const PriorityQueue<Pacient> &llistaEspera, const BST<Pacient
 // Consultors
 //-------------
 
-PriorityQueue<Pacient> Hospital::getLlistaEspera() const{
-    return llistaEspera;
+void Hospital::mostrarLlistaEspera(){
+    if(not this->llistaEspera.empty()){
+        Queue<Pacient> quaux(this->llistaEspera); // Creem una llista de espera auxiliar
+        while(not quaux.empty()){
+            cout << "  " << quaux.front().getNom() << "  " << quaux.front().getEdat() << " " << quaux.front().getMotiu() << " " << quaux.front().getGravetat() << endl;
+        }
+    }
 }
 
 //-------------
@@ -93,9 +98,10 @@ void Hospital::modificarPacient(const string &s, int &g){
         Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
         pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
         if(aux.first){
-            pacients.setValue(aux.second, g);
+            pacients.setValue(aux.second, Pacient(aux.second.getNom(), aux.second.getEdat(), aux.second.getMotiu(), aux.second.getGravetat()));
             llistaEspera.remove(aux.second);
-            llistaEspera.push(aux.second.actualitzaEstat(g)); // Actualitzem pacient amb la nova gravetat, i l'afegim de manera que s'ordeni automàticament
+            aux.second.actualitzaEstat(g); // Actualitzem pacient amb la nova gravetat
+            llistaEspera.push(aux.second); // Afegim el pacient, de manera que s'ordeni automàticament
         }
         else{
             cout << "  error" << endl;
@@ -106,7 +112,7 @@ void Hospital::modificarPacient(const string &s, int &g){
     }
 }
 
-void Hospital::afegirVisita(const &string &s, const string &doc, const Data &data){
+void Hospital::afegirVisita(const string &s, const string &doc, Data &data){
     Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
     pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
     if(aux.first){
@@ -122,7 +128,7 @@ void Hospital::afegirVisita(const &string &s, const string &doc, const Data &dat
             }
         }
         if(found){
-            doctors[i].afegirVisita(Visita(data, aux.second)) // creem una visita amb la constructora que rep per paràmetre una data i un pacient
+            doctors[i].afegirVisita(Visita(data, aux.second)); // creem una visita amb la constructora que rep per paràmetre una data i un pacient
         }
         else{
             cout << "  error" << endl;
@@ -133,7 +139,7 @@ void Hospital::afegirVisita(const &string &s, const string &doc, const Data &dat
     }
 }
 
-void Hospital::eliminarVisita(const &string &s, const string &doc, const Data &data){
+void Hospital::eliminarVisita(const string &s, const string &doc, Data &data){
     Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
     pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
     if(aux.first){
@@ -149,7 +155,7 @@ void Hospital::eliminarVisita(const &string &s, const string &doc, const Data &d
             }
         }
         if(found){
-            doctors[i].eliminarVisita(Visita(data, aux.second)) // creem una visita amb la constructora que rep per paràmetre una data i un pacient
+            doctors[i].eliminarVisita(Visita(data, aux.second)); // creem una visita amb la constructora que rep per paràmetre una data i un pacient
         }
         else{
             cout << "  error" << endl;

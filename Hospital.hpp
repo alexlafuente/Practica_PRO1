@@ -8,11 +8,11 @@
 class Hospital {
     
 private:
-    PriorityQueue<Pacient> llistaEspera; // Llista d'espera de la secció d'urgències (en base a gravetat)
+    Queue<Pacient> llistaEspera; // Llista d'espera de la secció d'urgències (en base a gravetat)
     BST<Pacient> pacients; // Llista dels noms dels pacients
     vector<Doctor> doctors; // Llista de doctors
     
-Public:
+public:
     //-------------
     // Constructors
     //-------------
@@ -23,7 +23,7 @@ Public:
     
     // Pre: cert
     // Post: crea un hospital amb la llista d'espera, el registre de pacients i la llista de doctors, rebuts per paràmetre
-    Hospital(const PriorityQueue<Pacient> &llistaEspera, const BST<Pacient> &pacients, const vector<Doctor> &doctors);
+    Hospital(const Queue<Pacient> &llistaEspera, const BST<Pacient> &pacients, const vector<Doctor> &doctors);
     
     // Destructor
     // Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
@@ -34,8 +34,8 @@ Public:
     //-------------
     
     // Pre: cert
-    // Post: retorna la llista de espera
-    PriorityQueue<Pacient> getLlistaEspera() const;
+    // Post: mostra per pantalla la llista d'Espera
+    void mostrarLlistaEspera();
     
     
     //-------------
@@ -64,17 +64,17 @@ Public:
     // Pre: s no està buida
     // Post: si no existeix un pacient amb nom s al registre, o gravetat no és vàlida, dona error i no fa res. En cas contrari, es modifica el pacient al 
     // sistema, i es ressitua el pacient en la llista d’espera en funció del nou nivell de gravetat
-    void modificarPacient(const string &s, int &g); // Apunt: en PriorityQueue, eliminar element i afegir el nou element (modificat) i modificar en BST
+    void modificarPacient(const string &s, int &g); // Apunt: en Queue, eliminar element i afegir el nou element (modificat) i modificar en BST
     
     // Pre: s, doc i data no estan buits
     // Post: si no existeix un pacient amb nom s al registre, o un doctor amb nom doc a la llista, dona error i no fa res. En cas contrari, s’afegeix una nova 
     // visita al doctor amb el pacient i data indicat
-    void afegirVisita(const &string &s, const string &doc, const Data &data); // Apunt: Agafar el Pacient a afegir al vector de visites, del BST
+    void afegirVisita(const string &s, const string &doc, Data &data); // Apunt: Agafar el Pacient a afegir al vector de visites, del BST
     
     // Pre: p, doc i data no estan buits
     // Post: si no existeix un pacient amb nom p al registre, o un doctor amb nom doc a la llista, o la visita no existeix a la llista, dona error. En cas 
     // contrari, s’elimina la visita al doctor amb el pacient de nom p la data de nom data.
-    void eliminarVisita(const &string &s, const string &doc, const Data &data); // Apunt: comparar visites del vector de visites amb == getData() i 
+    void eliminarVisita(const string &s, const string &doc, Data &data); // Apunt: comparar visites del vector de visites amb == getData() i 
                                                                                //        == getPacient();
     // Pre: cert
     // Post: Per cada doctor que hi hagi en la llista, s’escriu el seu nom i la llista de visites (ordenada per data)
