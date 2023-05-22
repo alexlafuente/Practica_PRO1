@@ -61,6 +61,7 @@ private:
        la jerarquia de nodes apuntada per item */
 	void setValue(Item *node, const T& d, const T& newData);
 	
+	void ef_find(Item *pitem, pair<bool, T> &aux, const T &element) const;
 
 public:
 
@@ -104,8 +105,6 @@ public:
 	//-----------
 	// Consultors
 	//-----------
-	
-	void ef_find(Item *pitem, pair<bool, T> &aux, const T &element) const;
 	
 	/* Pre: cert */
 	/* Post: el primer component del resultat indica
