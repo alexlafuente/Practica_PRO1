@@ -96,7 +96,7 @@ istream& operator>>(istream &is, Doctor &d){
 
 ostream& operator<<(ostream &os, const Doctor &d){
     os << "  " << d.nom << endl;
-    for(int i = 0; i < int(visites.size()); ++i){
+    for(int i = 0; i < int(d.visites.size()); ++i){
         os << "  " << d.visites[i].getData() << " " << d.visites[i].getPacient().getNom() << endl;
     }
     return os;
