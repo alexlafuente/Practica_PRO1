@@ -23,7 +23,7 @@ class Visita {
 		
 		/* Pre: cert */
 		/* Post: crea una visita de data 'd' i pacient 'p' */
-		Visita(Data &d, Pacient &p);
+		Visita(Data d, Pacient p);
 		
 		// Destructor
 		// Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
