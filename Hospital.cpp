@@ -43,7 +43,7 @@ void Hospital::mostrarLlistaEspera(){
 
 void Hospital::afegirPacient(const Pacient &p){
     pair<bool, Pacient> aux = pacients.find(p);
-    if(not aux.first and p.mateixesDades(aux.second)){
+    if(not aux.first and not (p.mateixesDades(aux.second))){
         cout << "alta_pacient " << p.getNom() << "  " << p.getEdat() << " " << p.getMotiu() << " " << p.getGravetat() << endl;
         llistaEspera.push(p);
         pacients.insert(p);
