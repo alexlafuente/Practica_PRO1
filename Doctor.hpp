@@ -46,10 +46,6 @@ public:
     //-------------
     
     // Pre: cert
-    // Post: retorna la llista de visites paràmetre implícit, ordenat
-    vector<Visita> visitesOrdenades();
-    
-    // Pre: cert
     // Post: afegeix visita paràmetre explícit, al final del vector de visites paràmetre implícit
     void afegirVisita(Visita visita);
     

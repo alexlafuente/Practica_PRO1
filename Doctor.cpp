@@ -35,13 +35,7 @@ string Doctor::getName() const{
 // Modificadors
 //-------------
 
-vector<Visita> Doctor::visitesOrdenades(){
-    ordenarVisites();
-    return this->visites;
-}
-
 void Doctor::ordenarVisites(){
-    // Insertion sort
     for(int i = 1; i < int(visites.size()); ++i){
         Visita x = visites[i];
         int j = i;
@@ -96,6 +90,7 @@ istream& operator>>(istream &is, Doctor &d){
 
 ostream& operator<<(ostream &os, const Doctor &d){
     os << "  " << d.nom << endl;
+    ordenarVisites();
     for(int i = 0; i < int(d.visites.size()); ++i){
         os << "  " << d.visites[i].getData() << " " << d.visites[i].getPacient().getNom() << endl;
     }
