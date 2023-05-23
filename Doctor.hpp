@@ -65,7 +65,7 @@ public:
     /* Pre: cert */
     /* Post: s'han escrit els atributs nom, edat, motiu i gravetat del
         doctor 'd' al canal estàndard de sortida */
-    friend ostream& operator<<(ostream &os, const Doctor &d);
+    friend ostream& operator<<(ostream &os, Doctor &d);
     
 
     /* Pre: cert */
