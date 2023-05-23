@@ -43,7 +43,7 @@ void Hospital::mostrarLlistaEspera(){
 
 void Hospital::afegirPacient(const Pacient &p){
     pair<bool, Pacient> aux = pacients.find(p);
-    if(not aux.first){
+    if(not aux.first and p.mateixesDades(aux.second)){
         cout << "alta_pacient " << p.getNom() << "  " << p.getEdat() << " " << p.getMotiu() << " " << p.getGravetat() << endl;
         llistaEspera.push(p);
         pacients.insert(p);
@@ -57,7 +57,7 @@ void Hospital::eliminarPacient(const string &s){
     cout << "baixa_pacient " << s << endl;
     Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
     pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
-    if(aux.first){
+    if(aux.first and p.mateixesDades(aux.second)){
         llistaEspera.remove(aux.second); // Eliminem el pacient de la llista d'espera
         pacients.remove(aux.second); // Eliminem el pacient del sistema
         for(int i = 0; i < int(doctors.size()); ++i){ // Eliminem de les agendes dels doctors, totes les visites programades aquest per pacient
@@ -104,7 +104,7 @@ void Hospital::modificarPacient(const string &s, int &g){
     if(g >= 1 and g <= 3){
         Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
         pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
-        if(aux.first){
+        if(aux.first and p.mateixesDades(aux.second)){
             pacients.setValue(aux.second, Pacient(aux.second.getNom(), aux.second.getEdat(), aux.second.getMotiu(), aux.second.getGravetat()));
             llistaEspera.remove(aux.second);
             aux.second.actualitzaEstat(g); // Actualitzem pacient amb la nova gravetat
@@ -123,7 +123,7 @@ void Hospital::afegirVisita(const string &s, const string &doc, Data &data){
     cout<< "programar_visita "<< s <<" "<< doc << " " << data << endl;
     Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
     pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
-    if(aux.first){
+    if(aux.first and p.mateixesDades(aux.second)){
         // Trobem el doctor de nom doc
         bool found = false;
         int i = 0;
@@ -151,7 +151,7 @@ void Hospital::eliminarVisita(const string &s, const string &doc, Data &data){
     cout << "cancellar_visita " << s << " " << doc << " " << data << endl;
     Pacient p(s); // Creem pacient, només amb nom, per fer la cerca al BST
     pair<bool, Pacient> aux = pacients.find(p); // Trobem el pacient al qual fa refèrencia el nom
-    if(aux.first){
+    if(aux.first and p.mateixesDades(aux.second)){
         // Trobem el doctor de nom doc
         bool found = false;
         int i = 0;
