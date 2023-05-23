@@ -61,7 +61,7 @@ private:
        la jerarquia de nodes apuntada per item */
 	void setValue(Item *node, const T& d, const T& newData);
 	
-	void ef_find(Item *pitem, pair<bool, T> &aux, const T &element) const;
+	Item* find(Item *pitem, const T &element) const;
 
 public:
 

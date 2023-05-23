@@ -65,19 +65,12 @@ void BST<T>::setValue(Item *node, const T& d, const T& value) {
 }
 
 template <typename T>
-void BST<T>::ef_find(Item *pitem, pair<bool, T> &aux, const T &element) const{
-	if(not aux.first and pitem != 0){
-		if(element == pitem->data){
-			aux.first = true;
-			aux.second = pitem->data;
-		}
-		else if(element < pitem->data){
-			ef_find(pitem->left, aux, element);
-		}
-		else if(element > pitem->data){
-			ef_find(pitem->right, aux, element);
-		}
+typename BST<T>::Item* BST<T>::find(Item *pitem, const T &element) const{
+	if(not (pitem->data == element) and pitem != NULL){
+		pitem = find(pitem->left, element);
+		pitem = find(pitem->right, element);
 	}
+	return pitem;
 }
 
 //-------------
@@ -127,8 +120,12 @@ void BST<T>::setValue(const T& d, const T& value) {
 template <typename T>
 pair<bool, T> BST<T>::find(const T& d) const {
 	pair<bool, T> aux;
-	aux.first = false; // Per si de cas, instanciem el booleà com a fals
+	aux.first = false;
 	Item *pitem = root; // Punter auxiliar, que apunta a l'arrel de l'arbre de cerca
-	ef_find(pitem, aux, d);
+	pitem = find(pitem, d);
+	if(pitem->data == d){
+		aux.first = true;
+		aux.second = pitem->data;
+	}
 	return aux;
 }
