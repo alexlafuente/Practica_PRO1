@@ -57,7 +57,7 @@ void Doctor::eliminarVisita(Visita visita){
     int i = 0;
     while(not found and i < int(visites.size())){
         // Es copien tots els elements, fins el que es vol eliminar (aquest no el copiem)
-        if(not (visites[i].getData() == visita.getData()) and not (visites[i].getPacient().mateixesDades(visita.getPacient()))){
+        if(not (visites[i].getData() == visita.getData() and (visites[i].getPacient().mateixesDades(visita.getPacient())))){
             aux.push_back(visites[i]);
         }
         else{
@@ -65,12 +65,17 @@ void Doctor::eliminarVisita(Visita visita){
         }
         ++i;
     }
-    while(i < int(visites.size())){
-        // Copia els elements restants
-        aux.push_back(visites[i]);
-        ++i;
+    if(found){
+        while(i < int(visites.size())){
+            // Copia els elements restants
+            aux.push_back(visites[i]);
+            ++i;
+        }
+        visites = aux;
     }
-    visites = aux;
+    else{
+        cout << "  error" << endl;
+    }
 }
 
 void Doctor::eliminarVisites(Pacient &p){
