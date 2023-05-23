@@ -38,6 +38,10 @@ class Pacient {
            'edat', 'motiu' i 'gravetat' rebuts per paràmetre */
 		Pacient(string nom, int edat, string motiu, int gravetat);
 		
+		/* Pre: cert */
+		/* Post: crea un pacient amb els mateixos paràmetres que el pacient 'p' */
+		Pacient(const Pacient &p);
+		
 		// Destructor
 		// Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
 		~Pacient();
@@ -105,6 +109,10 @@ class Pacient {
 		   implícit és superior al pacient 'p' rebut (true) o
 		   no ho és (false), en base a l'ordenació alfabètica dels noms d'aquests */
 		bool operator>(Pacient p) const;
+		
+		/* Pre: cert */
+		/* Post: retorna un pacient amb els mateixos paràmetres que el pacient 'p' */
+		Pacient& operator=(const Pacient &p);
 		
 		
 		//-----------

@@ -32,6 +32,13 @@ Pacient::Pacient(string nom, int edat, string motiu, int gravetat){
     this->gravetat = gravetat;
 }
 
+Pacient::Pacient(const Pacient &p){
+    this->nom = p.getNom();
+    this->edat = p.getEdat();
+    this->motiu = p.getMotiu();
+    this->gravetat = p.getGravetat();
+}
+
 // Destructor
 // Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
 Pacient::~Pacient(){
@@ -107,6 +114,13 @@ bool Pacient::operator>(Pacient p) const{
     return this->nom > p.getNom();
 }
 
+Pacient& Pacient::operator=(const Pacient &p){
+    this->nom = p.getNom();
+    this->edat = p.getEdat();
+    this->motiu = p.getMotiu();
+    this->gravetat = p.getGravetat();
+    return *this;
+}
 
 // PODEU AFEGIR ELS MÈTODES QUE NECESSITEU
 
