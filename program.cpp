@@ -61,6 +61,7 @@ int main() {
 			h.mostrarVisites();
         }
         else {
+            cout << inst << endl;
             cout << "  error" << endl;
         }
 		
