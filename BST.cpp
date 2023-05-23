@@ -129,7 +129,7 @@ pair<bool, T> BST<T>::find(const T& d) const {
 	aux.first = false;
 	Item *pitem = root; // Punter auxiliar, que apunta a l'arrel de l'arbre de cerca
 	pitem = find(pitem, d);
-	if(pitem->data == d){
+	if(pitem != NULL and pitem->data == d){
 		aux.first = true;
 		aux.second = pitem->data;
 	}
