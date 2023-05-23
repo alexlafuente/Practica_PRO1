@@ -22,6 +22,10 @@ class Visita {
 		//-------------
 		
 		/* Pre: cert */
+		/* Post: crea una visita amb els mateixos paràmetres que la visita 'v' */
+		Visita(const Visita &v);
+		
+		/* Pre: cert */
 		/* Post: crea una visita de data 'd' i pacient 'p' */
 		Visita(Data d, Pacient p);
 		
@@ -40,5 +44,13 @@ class Visita {
 		/* Pre: cert */
 		/* Post: retorna el pacient de la visita paràmetre implícit */
 		Pacient getPacient() const;
+		
+		//-------------
+		// Modificadors
+		//-------------
+		
+		/* Pre: cert */
+		/* Post: crea una visita amb els mateixos paràmetres que la visita 'v' */
+		Visita& operator=(const Visita &v);
 };
 #endif
