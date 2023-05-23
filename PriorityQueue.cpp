@@ -113,7 +113,7 @@ void Queue<T>::remove(T value) {
 	Item *pitem = first;
 	Item *ans = 0;
 	bool found = false;
-	while(pitem != 0){
+	while(pitem != 0 and not found){
 		if(pitem->value == value){
 			found = true;
 		}
