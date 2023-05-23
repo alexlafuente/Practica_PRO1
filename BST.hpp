@@ -61,6 +61,8 @@ private:
        la jerarquia de nodes apuntada per item */
 	void setValue(Item *node, const T& d, const T& newData);
 	
+	// Pre: ipitem = PITEM
+	// Post: pitem apunta a un l'element de l'arbre, que sigui igual a T
 	Item* find(Item *pitem, const T &element) const;
 
 public:

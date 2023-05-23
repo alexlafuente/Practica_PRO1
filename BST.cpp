@@ -66,9 +66,15 @@ void BST<T>::setValue(Item *node, const T& d, const T& value) {
 
 template <typename T>
 typename BST<T>::Item* BST<T>::find(Item *pitem, const T &element) const{
-	if(not (pitem->data == element) and pitem != NULL){
-		pitem = find(pitem->left, element);
-		pitem = find(pitem->right, element);
+	if(pitem != NULL and not (pitem->data == element)){
+		if(pitem->left != NULL){
+			pitem = find(pitem->left, element);
+			// HI: pitem apunta a un l'element del subarbre esquerrà, que sigui igual a T
+		}
+		if(pitem->right != NULL){
+			pitem = find(pitem->right, element);
+			// HI: pitem apunta a un l'element del subarbre dretà, que sigui igual a T
+		}
 	}
 	return pitem;
 }
