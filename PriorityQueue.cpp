@@ -114,7 +114,7 @@ void Queue<T>::remove(T value) {
 	Item *ans = 0;
 	bool found = false;
 	while(pitem != 0 and not found){
-		if(pitem->value == value){
+		if(pitem->value.mateixesDades(value)){
 			found = true;
 		}
 		else{
