@@ -42,9 +42,9 @@ void Hospital::mostrarLlistaEspera(){
 //-------------
 
 void Hospital::afegirPacient(const Pacient &p){
+    cout << "alta_pacient " << p.getNom() << "  " << p.getEdat() << " " << p.getMotiu() << " " << p.getGravetat() << endl;
     pair<bool, Pacient> aux = pacients.find(p);
     if(not aux.first and not (p.mateixesDades(aux.second))){
-        cout << "alta_pacient " << p.getNom() << "  " << p.getEdat() << " " << p.getMotiu() << " " << p.getGravetat() << endl;
         llistaEspera.push(p);
         pacients.insert(p);
     }
@@ -176,7 +176,7 @@ void Hospital::eliminarVisita(const string &s, const string &doc, Data &data){
 }
 
 void Hospital::mostrarVisites(){
-    cout<< "mostrar_programacio_visites" << endl;
+    cout<< "mostrar_programacio_visites " << endl;
     if(doctors.size() > 0){
         for(int i = 0; i < int(doctors.size()); ++i){
             cout << doctors[i];
