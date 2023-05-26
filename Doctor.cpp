@@ -97,7 +97,7 @@ ostream& operator<<(ostream &os, Doctor &d){
     os << "  " << d.nom << endl;
     d.ordenarVisites();
     for(int i = 0; i < int(d.visites.size()); ++i){
-        os << "  " << d.visites[i].getData() << " " << d.visites[i].getPacient().getNom() << endl;
+        os << "  " << d.visites[i].getData().getDia() << "/" << d.visites[i].getData().getMes() << "/" << d.visites[i].getData().getAny() << " " << d.visites[i].getPacient().getNom() << endl;
     }
     return os;
 }
