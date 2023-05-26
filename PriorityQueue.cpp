@@ -111,9 +111,9 @@ void Queue<T>::push(T value) {
 template <typename T>
 void Queue<T>::remove(T value) {
 	Item *pitem = first;
-	Item *ans = 0;
+	Item *ans = NULL;
 	bool found = false;
-	while(pitem != 0 and not found){
+	while(pitem != NULL and not found){
 		if(pitem->value.mateixesDades(value)){
 			found = true;
 		}
@@ -123,7 +123,11 @@ void Queue<T>::remove(T value) {
 		}
 	}
 	if(found){
-		if(pitem == first){
+		if(pitem == first and first == last){ // Només hi ha un element, i està apuntat pel punter 'pitem'
+			first = NULL;
+			last = NULL;
+		}
+		else if(pitem == first){
 			first = pitem->next;
 		}
 		else if(pitem == last){
