@@ -123,25 +123,22 @@ void Queue<T>::remove(T value) {
 		}
 	}
 	if(found){
-		if(pitem == first and first == last){ // Només hi ha un element, i està apuntat pel punter 'pitem'
-			first = NULL;
-			last = NULL;
-		}
-		else if(pitem == first){
-			first = pitem->next;
-		}
-		else if(pitem == last){
-			last = ans;
-		}
-		else{
-			ans->next = pitem->next;
-		}
-		delete pitem;
-		_size--;
-	}
-	else{
-		cout << "  error" << endl;
-	}
+        if(pitem == first and first == last){ // Només hi ha un element, i està apuntat pel punter 'pitem'
+            first = NULL;
+            last = NULL;
+        }
+        else if(pitem == first){
+            first = pitem->next;
+        }
+        else {
+            ans->next = pitem->next;
+            if(pitem == last){
+                last = ans;
+            }
+        }
+        delete pitem;
+        _size--;
+    }
 }
 
 
