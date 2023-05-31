@@ -172,9 +172,11 @@ bool Queue<T>::empty() const {
 	
 template<typename U>
 ostream &operator<<(ostream &os, Queue<U> &q) {
-  os << q._size;
-  for (typename Queue<U>::Item *item = q.first; item != NULL; item = item->next)
-    os << " " << item->value;
+  for (typename Queue<U>::Item *item = q.first; item != NULL; item = item->next){
+	  os << item->value << endl;
+    if(item->next != NULL)
+		cout << "  ";
+  }
   return os;
 }
 
