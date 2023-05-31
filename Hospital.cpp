@@ -31,7 +31,7 @@ void Hospital::mostrarLlistaEspera(){
     if(not this->llistaEspera.empty()){
         Queue<Pacient> quaux(this->llistaEspera); // Creem una llista de espera auxiliar
         while(not quaux.empty()){
-            cout << "  " << quaux.front().getNom() << "  " << quaux.front().getEdat() << " " << quaux.front().getMotiu() << " " << quaux.front().getGravetat() << endl;
+            cout << quaux.front();
             quaux.pop();
         }
     }

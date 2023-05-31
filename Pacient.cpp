@@ -143,6 +143,6 @@ istream& operator>>(istream &is, Pacient &p){
 /* Post: s'han escrit els atributs nom, edat, motiu i gravetat del
     pacient 'p' al canal estàndard de sortida */
 ostream& operator<<(ostream &os, const Pacient &p){
-    os << p.nom << "  " << p.edat << " " << p.motiu << " " << p.gravetat << endl;
+    os << "  " << p.nom << "  " << p.edat << " " << p.motiu << " " << p.gravetat << endl;
     return os;
 }
