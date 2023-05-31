@@ -1,5 +1,21 @@
 #include "Doctor.hpp"
 
+//--------------------------
+// Mètodes privats auxiliars
+//--------------------------
+
+void Doctor::ordenarVisites(){
+    for(int i = 1; i < int(visites.size()); ++i){
+        Visita x = visites[i];
+        int j = i;
+        while(j > 0 and x.getData() < visites[j - 1].getData()){
+            visites[j] = visites[j - 1];
+            --j;
+        }
+        visites[j] = x;
+    }
+}
+
 //-------------
 // Constructors
 //-------------
@@ -34,18 +50,6 @@ string Doctor::getName() const{
 //-------------
 // Modificadors
 //-------------
-
-void Doctor::ordenarVisites(){
-    for(int i = 1; i < int(visites.size()); ++i){
-        Visita x = visites[i];
-        int j = i;
-        while(j > 0 and x.getData() < visites[j - 1].getData()){
-            visites[j] = visites[j - 1];
-            --j;
-        }
-        visites[j] = x;
-    }
-}
 
 void Doctor::afegirVisita(Visita visita){
     visites.push_back(visita);
