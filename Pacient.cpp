@@ -56,6 +56,14 @@ void Pacient::actualitzaEstat(int gravetat){
     this->gravetat = gravetat;
 }
 
+Pacient& Pacient::operator=(const Pacient &p){
+    this->nom = p.getNom();
+    this->edat = p.getEdat();
+    this->motiu = p.getMotiu();
+    this->gravetat = p.getGravetat();
+    return *this;
+}
+
 //-----------
 // Consultors
 //-----------
@@ -113,17 +121,6 @@ bool Pacient::operator<(Pacient p) const{
 bool Pacient::operator>(Pacient p) const{
     return this->nom > p.getNom();
 }
-
-Pacient& Pacient::operator=(const Pacient &p){
-    this->nom = p.getNom();
-    this->edat = p.getEdat();
-    this->motiu = p.getMotiu();
-    this->gravetat = p.getGravetat();
-    return *this;
-}
-
-// PODEU AFEGIR ELS MÈTODES QUE NECESSITEU
-
 
 //-----------
 // L/E

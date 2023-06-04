@@ -57,6 +57,10 @@ public:
     // Post: s'eliminen totes les visites d'un pacient p
     void eliminarVisites(Pacient &p);
     
+    //-----------
+    // L/E
+    //-----------
+    
     /* Pre: està preparat al canal estàndard d'entrada un valor - string*/
     /* Post: el doctor 'd' passa a tenir el valor llegit del canal
         estàndard d'entrada com a nom */			
@@ -66,12 +70,4 @@ public:
     /* Post: s'han escrit els atributs nom, edat, motiu i gravetat del
         doctor 'd' al canal estàndard de sortida */
     friend ostream& operator<<(ostream &os, Doctor &d);
-    
-
-    /* Pre: cert */
-    /* Post: s'ha escrit l'atribut nom del
-        doctor 'd' al canal estàndard de sortida */
-    //friend ostream& operator<<(ostream &os, const Doctor &d);
-    
-
 };

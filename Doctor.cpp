@@ -92,6 +92,10 @@ void Doctor::eliminarVisites(Pacient &p){
     visites = aux;
 }
 
+//-----------
+// L/E
+//-----------
+
 istream& operator>>(istream &is, Doctor &d){
     is >> d.nom;
     return is;

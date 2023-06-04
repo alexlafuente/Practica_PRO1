@@ -55,6 +55,10 @@ class Pacient {
 		   implícit	passa a ser el valor de 'gravetat' */
 		void actualitzaEstat(int gravetat);
 		
+		/* Pre: cert */
+		/* Post: retorna un pacient amb els mateixos paràmetres que el pacient 'p' */
+		Pacient& operator=(const Pacient &p);
+		
 		//-----------
 		// Consultors
 		//-----------
@@ -88,9 +92,6 @@ class Pacient {
 		   implícit i el pacient 'p' rebut són idèntics (true)
 		   o no ho són (false)*/
 		bool mateixesDades(const Pacient &p) const;
-
-
-		// PODEU AFEGIR ELS MÈTODES QUE NECESSITEU
 		
 		/* Pre: cert */
 		/* Post: retorna un booleà que indica si el pacient paràmetre
@@ -109,10 +110,6 @@ class Pacient {
 		   implícit és superior al pacient 'p' rebut (true) o
 		   no ho és (false), en base a l'ordenació alfabètica dels noms d'aquests */
 		bool operator>(Pacient p) const;
-		
-		/* Pre: cert */
-		/* Post: retorna un pacient amb els mateixos paràmetres que el pacient 'p' */
-		Pacient& operator=(const Pacient &p);
 		
 		
 		//-----------
