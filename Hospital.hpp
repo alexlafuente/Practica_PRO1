@@ -35,7 +35,7 @@ public:
     
     // Pre: cert
     // Post: es mostra per pantalla la llista d'Espera
-    void es mostrarLlistaEspera();
+    void mostrarLlistaEspera();
     
     
     //-------------
@@ -78,5 +78,5 @@ public:
     
     // Pre: cert
     // Post: Per cada doctor que hi hagi en la llista, s’escriu el seu nom i la llista de visites (ordenada per data)
-    void es mostrarVisites();
+    void mostrarVisites();
 };
