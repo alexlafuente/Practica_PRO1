@@ -112,7 +112,7 @@ public:
 	/* Pre: cert */
     /* Post: s'han escrit al canal estàndard de sortida els elements
        de q */
-	template<typename U> friend ostream &operator<<(ostream &os, Queue<U> &q);
+	template<typename U> friend ostream &operator<<(ostream &os, const Queue<U> &q);
 
     /* Pre: q està buida; el canal estàndard d'entrada els elements
       d'una cua Q */

@@ -26,7 +26,7 @@ Hospital::~Hospital(){
 // Consultors
 //-------------
 
-void Hospital::mostrarLlistaEspera(){
+void Hospital::mostrarLlistaEspera() const{
     cout << "llista_espera" << endl;
     if(not this->llistaEspera.empty()){
         cout << "  " << llistaEspera;

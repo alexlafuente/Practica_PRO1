@@ -35,7 +35,7 @@ public:
     
     // Pre: cert
     // Post: es mostra per pantalla la llista d'Espera
-    void mostrarLlistaEspera();
+    void mostrarLlistaEspera() const;
     
     
     //-------------
