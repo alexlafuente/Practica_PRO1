@@ -53,7 +53,7 @@ public:
     // Post: elimina visita paràmetre explícit, al final del vector de visites paràmetre implícit
     void eliminarVisita(Visita visita);
     
-    // Pre: n no està buida
+    // Pre: p no està buit
     // Post: s'eliminen totes les visites d'un pacient p
     void eliminarVisites(Pacient &p);
     
