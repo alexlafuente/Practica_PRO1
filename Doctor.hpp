@@ -50,7 +50,7 @@ public:
     void afegirVisita(Visita visita);
     
     // Pre: cert
-    // Post: elimina visita paràmetre explícit, al final del vector de visites paràmetre implícit (copiar tots elements en vector auxiliar, excepte el que coincideix, i this->visites = vector auxiliar<Visita>)
+    // Post: elimina visita paràmetre explícit, al final del vector de visites paràmetre implícit
     void eliminarVisita(Visita visita);
     
     // Pre: n no està buida
