@@ -67,7 +67,6 @@ public:
     friend istream& operator>>(istream &is, Doctor &d);
     
     /* Pre: cert */
-    /* Post: s'han escrit els atributs nom, edat, motiu i gravetat del
-        doctor 'd' al canal estàndard de sortida */
+    /* Post: s'ha ordenat les visites, i s'ha escrit el nom del doctor 'd' i les seves visites, al canal estàndard de sortida */
     friend ostream& operator<<(ostream &os, Doctor &d);
 };
