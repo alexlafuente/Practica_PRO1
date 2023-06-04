@@ -77,6 +77,6 @@ public:
     void eliminarVisita(const string &s, const string &doc, Data &data);
     
     // Pre: cert
-    // Post: Per cada doctor que hi hagi en la llista, s’escriu el seu nom i la llista de visites (ordenada per data)
+    // Post: Per cada doctor que hi hagi en la llista, s'ordena la llista de visites (per data), i s’escriu el seu nom i la llista.
     void mostrarVisites();
 };
