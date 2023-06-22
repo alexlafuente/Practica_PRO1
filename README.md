@@ -33,33 +33,42 @@ Una vegada executat el programa, les instruccions disponibles són les següents
 l’ingrés i gravetat). Si el pacient ja existeix al sistema, es produeix un error; sinó,
 el pacient és donat d’alta al sistema i és afegit a la llista d’espera en funció de la
 gravetat del seu estat de salut.
+
 - ```baixa_pacient``` S’introdueix el nom d’un pacient. Si el pacient no existeix, es produeix
 un error. En cas contrari, el pacient es dona de baixa del sistema completament, per
 tant, també cal donar-lo de baixa de la llista d’espera i cancel·lar totes les visites que
 pogués tenir programades (si és el cas).
+
 - ```alta_doctor``` S’introdueix el nom del doctor/a, que farà d’identificador. Si ja existeix
 al sistema, es produeix un error. En cas contrari, el doctor/a és donat d’alta al
 sistema.
+
 - ```llista_espera``` No té paràmetres. S’escriuen les dades de tots els pacients que constin
 a la llista d’espera.
+
 - ```tractar_seguent_pacient``` No té paràmetres. Si no hi ha cap pacient a la llista
 d’espera, es produeix un error; sinó, s’elimina el primer pacient de la llista d’espera,
 però no es dona de baixa del sistema.
+
 - ```modificar_estat_pacient``` ’introdueix el nom d’un pacient i el nou nivell de gra-
 vetat. Si el pacient no existeix al sistema o el nivell de gravetat no és vàlid, es
 produeix un error; sinó, s’actualitza el valor de gravetat del pacient al sistema i es
 ressitua el pacient en la llista d’espera en funció del nou nivell de gravetat.
+
 - ```programar_visita``` S’introdueix el nom d’un pacient, el nom d’un doctor i una
 data. Si el pacient o el doctor no existeixen al sistema, es produeix un error; sinó,
 s’afegeix una nova visita al doctor amb el pacient i data indicats. Sempre serà possible
 afegir una nova visita a qualsevol doctor del sistema, encara que ja tingui altres visites
 programades per la mateixa data.
+
 - ```cancellar_visita``` S’introdueix el nom d’un pacient, el nom d’un doctor i una
 data. Si el pacient o el doctor no existeixen al sistema, o bé la visita a cancel·lar no
 havia estat programada, es produeix un error; sinó, s’elimina la visita al doctor amb
 el pacient i data indicats.
+
 - ```mostrar_programacio_visites``` No té paràmetres. Per cada doctor que hi hagi en el
 sistema, s’escriu el seu nom i la llista de visites (data i nom pacient) que té programades
 ordenada per data. En cas què hagi dues dates coincidents, s’escriuen segons l’ordre
 en què hagin estat introduïdes al sistema.
--```fi``` No té paràmetres. S’acaba l’execució de la simulació.
+
+- ```fi``` No té paràmetres. S’acaba l’execució de la simulació.
