@@ -42,7 +42,7 @@ al sistema, es produeix un error. En cas contrari, el doctor/a és donat d’alt
 sistema.
 - ```llista_espera``` No té paràmetres. S’escriuen les dades de tots els pacients que constin
 a la llista d’espera.
-- ```tractar seguent pacient``` No té paràmetres. Si no hi ha cap pacient a la llista
+- ```tractar_seguent_pacient``` No té paràmetres. Si no hi ha cap pacient a la llista
 d’espera, es produeix un error; sinó, s’elimina el primer pacient de la llista d’espera,
 però no es dona de baixa del sistema.
 - ```modificar estat pacient``` ’introdueix el nom d’un pacient i el nou nivell de gra-
